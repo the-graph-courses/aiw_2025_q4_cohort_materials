@@ -1,0 +1,218 @@
+---
+title: "Workshop 2: Automated Data Analysis & Reporting"
+format: html
+author: "The Graph Courses"
+---
+
+# Introduction
+
+Welcome to another session of your Generative AI Workshop! In this session, you'll use Data Analysis AI tools to compile a brief report (HTML or PDF) analyzing the relationship between two chosen country indicators from the Gapminder data repository here: [https://gapminder.org/data](https://gapminder.org/data){target="_blank"}.
+
+## Your final report should contain:
+
+1.  A world map visualization of your first selected indicator (for the chosen recent year).
+2.  A world map visualization of your second selected indicator (for the chosen recent year).
+3.  A scatterplot showing the relationship between your two chosen indicators.
+4.  A description and interpretation of the relationship between the two indicators. This may include a correlation coefficient (e.g., Pearson's $r$) if appropriate, or a qualitative description based on the scatterplot.
+5. A short reflection written by you about the process of interacting with the AI tools. E.g. What was easy? What was difficult? What was surprising? What did you learn?
+
+Note that rather than grading the technical precision of the report (we understand that you are not all data analysts), we will simply check that you have followed the overall instructions and written an honest reflection.
+
+## Tool Tracks
+
+You will choose one of the following tools based on your coding experience:
+
+*   **Students WITHOUT significant coding experience:** You will use **Julius**, a more user-friendly AI data analysis tool with a chat interface.
+
+*   **Students WITH significant coding experience in R:** You should use **Cursor**, an AI-powered code editor, with R.
+
+*   **If you finish your assigned tool track early, you are encouraged to try the other one!**
+
+---
+
+# Part 1: General Setup & Data Selection (All Students)
+
+1.  **Choose Your Data:**
+    *   Go to Gapminder's data repository: [https://gapminder.org/data](https://gapminder.org/data){target="_blank"}
+    *   Browse the indicators and **select TWO indicators** that you hypothesize might be related which you are interested in: 
+        *   Make sure data is available for the year 2020, as we will be using this year for our analysis. (Official statistics often take a while to be released; 2020 is old enough that accurate data is likely to be available, and recent enough that the data is still relevant.)
+        *   If you have no experience with data analysis, you may want to check with an instructor to make sure the indicators you choose actually make sense to analyze together. You can also fall back on the famous life expectancy vs. GDP per capita relationship.
+    *   For each chosen indicator, download the data as a CSV file.
+
+---
+
+# Part 2: Tool-Specific Instructions
+
+Please follow the instructions for the tool assigned to your group.
+
+## Section A: For Students WITHOUT Prior Coding Experience (Using Julius)
+
+You will use Julius, an AI data analysis chat-based tool, to analyze your data and generate content for your report.
+
+1.  **Setup Julius:**
+
+    *   Go to [Julius.ai](https://julius.ai/){target="_blank"} and sign up.
+    *   For a 2-week trial of premium features, go to your **Account & Billing**, then **Account**, and under **Institutional Codes**, enter the code provided by your instructor.
+    *   **Please do not share this code.**
+
+2.  **Starting Your Analysis in Julius:**
+    *   Start a new "thread" in Julius.
+    *   **Select your tools:**
+        *   **Code Language:** Julius can use Python or R. We recommend selecting **Python** as it typically has fewer package installation issues and better support for interactive visualizations. The code language changer is usually found at the top left of the Julius window.
+        *   **AI Model:** It's recommended to switch to the **Claude 4 Sonnet** model for potentially better results. The model selection is typically in a dropdown menu below the prompt input box.
+    *   **IMPORTANT: Upload your data first:** Before writing your prompt, **upload your two CSV files** to the conversation. This ensures Julius has access to your data when you give it instructions.
+
+3.  **Chatting with Julius (Example Prompt):**
+
+    *   **Chat with Julius Example Prompt:**
+
+        ```
+        I am writing a report on the relationship between two indicators 
+        
+        1. [TYPE YOUR INDICATOR 1 NAME HERE]
+        2. [TYPE YOUR INDICATOR 2 NAME HERE]
+        
+        Both datasets have been added. Be sure to print and view a sample of each dataset to understand the data before you start.
+
+        Run the following steps for the report:
+        1. For each indicator, subset the data to 2020.
+        2. Create a world map visualization for each indicator in 2020. (Use plotly)
+        3. Create a scatterplot showing the relationship between these two indicators in 2020.
+        4. Provide a brief interpretation of the relationship between the two indicators.
+        ```
+
+
+    *   **Review and Refine:** Julius will show its steps, data, and plots. Work with it to refine the figures and text until you are happy with the output plots. You can ask it to change the title of a plot, or to use a different color scheme, for example.
+
+    *   **A Note on AI Interaction:**
+        *   If the AI seems to be going off track or taking too long, look for a "stop" button (often near the prompt input box) to interrupt it.
+        * If you don't like a change made by the model, look for the revert button at the bottom right of your previous message and click on it.
+
+4.  **Creating Your Report Document:**
+    *   **Download Outputs:** Download the individual plots (as images, e.g., PNG) or take screenshots of the plots that Julius generates. You will also copy any key text outputs, such as data summaries or interpretations.
+    *   **Create a DOCX/Google Docs file:** Open a word processor (like Microsoft Word, Google Docs, or Pages) and create a new document.
+    *   **Assemble initial report content:**
+        *   Add a title, your name, and the date.
+        *   Insert the plots you downloaded.
+        *   Paste in the relevant text outputs from Julius.
+        *   Organize this content into a clean and readable report.
+
+5.  **Add Your Reflection:**
+    *   Before finalizing your report, add your short reflection (point 5 from "Your final report should contain") to your document.
+
+6.  **Final Output:**
+    *   **Export as PDF** from your word processor. This PDF is your primary submission.
+
+## Section B: For Students WITH R Coding Experience (Using Cursor with R)
+
+You will use Cursor to generate an R Markdown report.
+
+1.  **Setup Cursor:**
+
+    *   You'll need to set up Cursor and can use their free 14-day trial.
+
+    *   Users in a few countries appear unable to access Cursor at the moment. You may need to use a VPN if this is the case. Or switch to the Julius track.
+
+    *   **Watch our setup video before you begin:** [AI Automated Data Analysis with R and Cursor (for R users only)](https://thegraphcourses.org/courses/aiw-2025-q2/topics/ai-automated-data-analysis-with-r-and-cursor-for-r-users-only/){target="_blank"}
+
+    *   **You should make sure you are actually using the paid 14-day trial of Cursor.** To do this, check your dashboard here: [https://cursor.com/dashboard](https://cursor.com/dashboard){target="_blank"}. And click the button to start the Pro trial if you are not yet on it. You will need to provide your credit card details to start the trial. But you can immediately cancel it without losing the trial by going to [https://cursor.com/dashboard?tab=billing](https://cursor.com/dashboard?tab=billing){target="_blank"}, then clicking "Manage Subscription" at the top right then "Cancel subscription".
+
+2. **Project folder:**
+
+    *   Create a new project folder on your computer. Place the two CSV files you downloaded from Gapminder into this folder.
+
+3.  **Generating Your Report in Cursor:**
+
+    *   Open your project folder in Cursor. Create a new R Markdown (`.Rmd`) file with an appropriate name.
+    *   Before using the Agent, it's recommended to change the model to **Claude 4 Sonnet** for better performance with R. You can usually find this setting in a dropdown menu associated with the chat or agent interface.
+    *   Then use Cursor's "Agent Mode" to help you write the R code and narrative.
+
+    *   **Initial Agent Prompt Idea:**
+        Here is an example of an initial agent prompt:
+
+        ```
+        You are an AI agent that creates R data reports.
+        You create reports by writing code to an Rmarkdown file (with github_document output), knitting that file, then reading the output md file to validate your work.
+        You repeat this edit, knit, review loop until the reporting task is achieved.
+        Use plots, tables, and inline R code where appropriate.
+        Be sure to print and view a sample of each dataset to understand the data before you write code pertaining to it.
+        Code should be hidden from the output.
+        Your task is further described below.
+        ```
+    *   **Specific Task Prompting Example:**
+
+        ```
+        Now create a data report in my Rmd file using the two datasets I've provided:
+        
+        They are:
+        - [TYPE YOUR INDICATOR 1 NAME HERE]
+        - [TYPE YOUR INDICATOR 2 NAME HERE]
+
+        The report should:
+        1. For each indicator, subset the data to 2020.
+        2. Create a world map visualization for each indicator in 2020.
+        3. Create a scatterplot showing the relationship between these two indicators in 2020.
+        4. Provide a brief interpretation of the relationship between the two indicators.
+
+        ```
+
+    *   **Iterate and Refine:** Work with the agent to refine the figures and text until you are happy with the report. You can ask it to change the title of a plot, or to use a different color scheme, for example.
+
+    *   **A Note on AI Interaction:**
+        *   If the AI seems to be going off track or taking too long, look for a "stop" button (often near the prompt input box) to interrupt it.
+        *   If you don't like the output, it's more effective to go back to your previous prompt, edit it to be clearer or more specific, and resubmit, rather than trying to correct the AI with a long series of follow-up messages. Longer conversations can sometimes confuse the AI.
+
+    *   **Troubleshooting R Package Installations:**
+        *   If Cursor has persistent trouble installing R packages, you might need to install them manually. Create a temporary R script (`.R`) file in your project. In this script, use the `install.packages("package_name")` command for each required package. Run this script. R might ask you to choose a CRAN mirror (a server to download from); pick any. Once the packages are installed, you can delete the temporary R script.
+
+4.  **Add Your Reflection:** Before your final knit, make sure to add your short reflection (point 5 from "Your final report should contain") directly into your R Markdown file. This should be part of the narrative of your report.
+
+5.  **Final Output:** Your primary submission will be the HTML file generated from knitting your R Markdown file. (That is, while your AI agent will output the report as an .md file while it is working, you should change the output format when you are done and ready to submit. To do this, in your .Rmd file, change `output: github_document` to `output: html_document` in the header section before your final knit.)
+
+---
+
+# Part 3: Submission
+
+*   Upload your final report file (HTML or PDF) to the designated submission link on the course workshop page.
+
+---
+
+# Part 4: Optional - Add to Your GitHub Pages Portfolio
+
+As a final step, you can add your report to your portfolio website which you created earlier in the course.
+
+## Upload Your Report to GitHub
+
+-   To get back to your repository home, visit github.com, click on your profile at the top right, then click on "Your repositories"
+
+-   Locate and click on your repository, which should be called something like `graph-ai-portfolio`
+
+-   Locate the button or icon to "Add file". Click on it and select "Upload file"
+
+-   Drag your final report file (HTML or PDF) into the box, then click on "Commit changes"
+
+-   Click **Commit changes**.
+
+## Get the Direct Link to Your Report
+
+-   Click on the name of your uploaded report file (HTML or PDF) → right‑click it → **Copy link address**. Now you have a link to your report file!
+
+## Update Your Portfolio with ChatGPT
+
+-   Go back to the ChatGPT conversation you used to build your portfolio website. (If you don't have it, you can start a new one, provide ChatGPT with your existing `index.html` file content, and then give it the new instructions).
+
+-   Ask ChatGPT to add a new entry for this workshop. Your prompt might look something like this:
+
+    ```
+    Please update my portfolio website. I want to add a new project for "Workshop 2: Automated Data Analysis".
+    Include a brief description like "Analyzed Gapminder data to explore relationships between two global indicators using AI tools."
+    Then, add a link to my report: [paste the direct link to your uploaded report file here]
+    ```
+
+-   Copy the new HTML that ChatGPT generated → return to your *index.html* on GitHub → click the **edit file** (✎) button at the top right.
+
+-   Delete all the existing code in the file, then paste in the new code from ChatGPT.
+
+-   At the top right, click the **Commit changes** button.
+
+-   Go to Actions (if you have GitHub Pages set up with Actions), and click on the latest build to observe the build process. Your live site, if refreshed, should now show the new project entry and the link should work!
