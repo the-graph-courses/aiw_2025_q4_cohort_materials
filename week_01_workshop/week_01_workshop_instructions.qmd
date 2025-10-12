@@ -12,15 +12,15 @@ By the end of this session, you'll have a live, professional website which you w
 
 To see what your portfolio might look like by the end of the course, review:
 
--   [Ijeoma's portfolio](https://aijayi.github.io/graph_ai_portfolio/)
+-   [Ijeoma's portfolio](https://aijayi.github.io/graph_ai_portfolio/){target="_blank"}
 
--   [Gbenga's portfolio](https://gbengasaolu.github.io/graph_courses_aiw/)
+-   [Gbenga's portfolio](https://gbengasaolu.github.io/graph_courses_aiw/){target="_blank"}
 
 ### What You'll Learn {.unnumbered}
 
 Through this workshop, you'll gain practical experience with:
 
--   Using AI (ChatGPT) to generate professional web content
+-   Using AI (Gemini/ChatGPT) to generate professional web content
 -   GitHub for code hosting and version control
 -   GitHub Pages for free website deployment
 -   Basic HTML structure and web development concepts
@@ -33,7 +33,7 @@ Let's get started!
 
 -   Download the course brochure from [thegraphcourses.org/aiw](https://thegraphcourses.org/aiw).
 
--   If you have a paid ChatGPT account, go to [chatgpt.com](https://chatgpt.com) and select the "Thinking" model. Otherwise, we recommend using Gemini at [gemini.google.com](https://gemini.google.com) and changing the model picker at top left to "Pro" if you still have some pro usage available. For free usage, Gemini is a slightly better web designer.
+-   If you have a paid ChatGPT account, go to [chatgpt.com](https://chatgpt.com) and select the "Thinking" model. Otherwise, we recommend using Gemini at [gemini.google.com](https://gemini.google.com) and changing the model picker at top left to "Pro" if you still have some pro usage available. 
 
 -   Next, start a new message and create an instruction similar to this:
 
@@ -49,24 +49,24 @@ Let's get started!
     Don't include my email in the site to avoid spam
     ```
 
-- Upload the course brochure and your CV to the chat window.
+- Upload the course brochure **and** your CV to the chat window.
 
 - Use Enter or click the "Send" button to send the prompt to the model.
 
--   (If you are very private and don't want a public website with your info online, you can use a pseudonym or use a random sample CV from the internet. e.g. [this one](https://careercenter.ucdavis.edu/sites/g/files/dgvnsk15461/files/media/documents/AES-Agriculture-and-Plants.pdf))
+-   (If you are very private and don't want a public website with your info online, you can use a pseudonym or use a random sample CV from the internet. e.g. [this one](https://careercenter.ucdavis.edu/sites/g/files/dgvnsk15461/files/media/documents/AES-Agriculture-and-Plants.pdf){target="_blank"})
 
 ## Render the Canvas & refine
 
--   ChatGPT should reply in a code block canvas.
--   Click the `Run code` button at its top‑right to open the live view.
--   Now you can ask follow‑up prompts. For example we recommend you ask the model to:
+-   Gemini/ChatGPT should reply in a code block canvas. Once the code is done generating, the live website should be displayed.
+-   If the website is not displayed, click the `Preview` button to open the live view.
+-   Now you can ask follow‑up prompts. For example we recommend the following:
     -   Upload a screenshot of a site you like and ask the model to "take some inspiration from this theme and layout".
     -   Ask the model to change some specific region, color or text, (For example, change the accent colour to green, or change specific pieces of text.)
--   (Side note: If you know some basic HTML, you can click the stop button at the top right of the canvas and edit the HTML directly. Later on, we will show you how to make small edits with a visual interface using the GrapesJS editor.)
+-   (Side note: If you know some basic HTML, you can click the edit button at the top right of the canvas and edit the HTML directly. Later on, we will show you how to make small edits with a visual interface using the GrapesJS editor.)
 
-## Stop preview & copy `index.html`
+## Stop preview & copy the HTML code
 
--   Click the `■ Stop` button (same location as the eye, at the top right of the canvas) to close preview.
+-   Click the `Code` button at the top right of the canvas (on Gemini) or the `Stop` button (on ChatGPT) to view the code.
 -   Select all the HTML inside the code box then copy it with `Ctrl/Cmd+C`.
 
 ## Create a GitHub account (one‑off)
