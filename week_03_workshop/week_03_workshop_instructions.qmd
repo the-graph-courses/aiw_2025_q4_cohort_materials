@@ -17,7 +17,12 @@ Afterwards, you'll take this extracted data and use an AI-powered analysis tool 
 
 ## Prerequisites
 
-**Before you begin:** This assignment assumes you have completed the pre-work, which covers setting up and using LLMs in Google Sheets with OpenRouter. If you haven't, please briefly review the video here: [Using LLM APIs with OpenRouter and Google Sheets](https://thegraphcourses.org/courses/aiw-2025-q2/topics/using-llm-apis-with-openrouter-and-google-sheets/){target="_blank"} to ensure you have the necessary context. You don't have to code/type along with the video; a brief review is enough.
+1. **Review the Pre-work:** This assignment assumes you have reviewed the pre-work, which covers setting up and using LLMs in Google Sheets with OpenRouter. If you haven't, please briefly review the video here: [Using LLM APIs with OpenRouter and Google Sheets](https://vimeo.com/1086807545?share=copy&fl=sv&fe=ci){target="_blank"} to ensure you have the necessary context. You don't have to code/type along with the video; a brief review is enough.
+
+2. **For Non-English Locales:** If your Google account is set to any language other than English, please set Google Sheets to display function names in English so you can follow along with this lesson.
+
+    - When you open a new spreadsheet, click `File` at the top left and then `Settings`.
+    - Under 'Display language', make sure the box 'Always use English function names' is checked/ticked.
 
 Then come back to this assignment.
 
