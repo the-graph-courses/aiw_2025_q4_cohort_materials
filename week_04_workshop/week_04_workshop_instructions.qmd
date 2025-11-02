@@ -6,156 +6,180 @@ author: "The Graph Courses"
 
 ## Introduction
 
-Welcome! In this assignment, you'll create an LLM-powered chatbot using Botpress and embed it into your portfolio website that you created in a previous session. 
+Welcome! In this assignment, you'll create an LLM-powered chatbot using Botpress and embed it into your portfolio website that you created in a previous session.
 
 Your completed chatbot will be able to:
 
-1. **Answer CV/Resume Questions** - Provide information about your background using uploaded CV data
-2. **Share Course Information** - Provide info about the Graph Courses GenAI syllabus and curriculum details  
-3. **Collect Visitor Information** - Gather names and emails from interested visitors for showcase day registration
+1.  **Answer CV/Resume Questions** - Provide information about your background using uploaded CV data
+2.  **Share Course Information** - Provide info about the Graph Courses GenAI syllabus and curriculum details\
+3.  **Collect Visitor Information** - Gather names and emails from interested visitors for showcase day registration
 
----
+------------------------------------------------------------------------
 
 # Part 1: Setting Up Your Botpress Account and Creating Your Bot
 
-1. **Create Your Botpress Account:**
-   - Go to [botpress.com](https://botpress.com/)
-   - Sign up for a free account using your email
-   (Note: Botpress provides $5 in free credits, which should cover over 1000 messages on the default models. But for serious use, you will need to add credit to your account)
-   - Verify your email address if needed
+Our first task is to set up a Botpress account and create a new bot.
 
-2. **Create a New Bot:**
-   - Skip the initial bot-creation flow for new users (Select "Other" for the bot type, then "Next" at the next two screens.)
-   - Botpress may try to get you to sign up for a paid plan. Ignore this either by clicking "Not now" on the bottom right, or by clicking outside of the pop-up.
-   - Next, visit https://app.botpress.cloud/workspaces/, to view your bots. A default bot may have been created for you, click on it then click on "Edit in Studio" at the top right. If a default bot was not created for you, click on the blue "Create Bot" button. 
+Note that Botpress interface changes from time to time, so the screenshots may not be exactly the same as the ones in the instructions.
 
-# Part 2: Setting Up the Bot in Studio
+Also note that the free account will allow your chatbots to send/receive up to 500 messages. This should be enough for our course chatbots. But for serious use later on, you may need to add credit to your account)
 
-1. **Set Bot Instructions:**
-   - In the main configuration area, find the "Instructions" field
+1.  **Create Your Botpress Account:**
 
-   ![](images/bot_instructions.jpg)
+    -   Go to [botpress.com](https://botpress.com/)
 
-   - Enter instructions like:
+    -   Sign up for a free account using your email.
+
+    -   Verify your email address if needed. (Botpress will send you a verification email to your inbox.)
+
+    -   When you first sign up, you may be taken to a screen like the below asking whether you want to "build with AI" or let the Botpress team build for you. Select "build with AI".
+
+        ![](images/build_with_ai.jpg){width="331"}
+
+    -   You will then see a "Setup" screen. This is not needed. We will set up our bot from scratch. Click on "Skip" at the top right.
+
+    ![](images/skip_setup.jpg){width="536"}
+
+2.  **Open the Bot Studio:**
+
+    -   You will now be brought to your bot's homepage. To open the bot studio, click on the "Edit in Studio" button at the top right.
+
+    ![](images/edit_in_studio.jpg){width="545"}
+
+    -   At this point, botpress may try to get you to sign up for a paid plan. Ignore this either by pressing Escape on the keyboard, or by clicking outside of the pop-up.
+
+# Part 2: Setting Up the Bot Instructions
+
+You now need to give an agent prompt that the LLM will use as context to understand how it should behave.
+
+1.  **Set Bot Instructions:**
+
+    -   In the main configuration area, find the "Instructions" field
+
+    ![](images/bot_instructions.jpg)
+
+    -   Enter instructions like the below:
 
 ```{text}
 You are a portfolio assistant for a Generative AI course student. Your main tasks are:
+
 - Answer questions about the student's CV and background using the knowledge base
 - Provide information about the Graph Courses GenAI syllabus and curriculum based on your knowledge base
-- After answering about two questions from the user, politely ask them whether they might be interested in our upcoming showcase event on Sunday October 5 at 5pm GMT or Wednesday October 8 at 3pm GMT
-- If they express interest, you will collect their name and email for registration and record those in the Attendees table tool.
+- After answering the user's query, politely ask them whether they might be interested in our upcoming showcase event. These take place on 
 
-Be friendly, professional, and informative. Always try to be helpful while staying focused on these core topics. For other topics, politely decline to answer. 
+-  Sunday, November 30, 5pm GMT
+-  Wednesday, December 3, 3pm GMT
+
+- If they express interest, collect their name and email for registration and record those in the Attendees table tool.
+- Try to be helpful while staying focused on these core topics. For other topics, politely decline to answer. 
 ```
 
 # Part 3: Set up the Knowledge Base
 
-1. **Navigate to Knowledge Base:**
-   - Find the "Knowledge Base" section under the "Instructions" section 
-   - Drag and drop your CV into the upload box. (If you don't want any of your personal information online, you can use a fake example CV from the internet, like here: [https://www.careers.ox.ac.uk/files/traditional-cv-examplepdf](https://www.careers.ox.ac.uk/files/traditional-cv-examplepdf))
-   - Download the syllabus from: [https://drive.google.com/file/d/1NV-Mo2UgXQwdTu_Jv-HtCVnB9Pf2Grng/view](https://drive.google.com/file/d/1NV-Mo2UgXQwdTu_Jv-HtCVnB9Pf2Grng/view), and upload it to the knowledge base.
+Our next task is to set up a knowledge base for the bot to use to answer questions. As long as the knowledge we provide is not too long (not over the LLM's context window limit), the bot will be able to use it proficiently to answer questions.
 
-# Part 4: Set Up Data Collection 
+1.  **Navigate to Knowledge Base:**
+    -   Find the "Knowledge Base" section under the "Instructions" section
+    -   Drag and drop your CV into the upload box. (If you don't want any of your personal information online, you can use a fake example CV from the internet, like here: <https://www.careers.ox.ac.uk/files/traditional-cv-examplepdf>)
+    -   Download the syllabus from: <https://drive.google.com/file/d/1NV-Mo2UgXQwdTu_Jv-HtCVnB9Pf2Grng/view>, and upload it to the knowledge base.
 
-1. **Create Attendees Table Structure:**
-   - On the Botpress sidebar, click on the Tables icon. 
+# Part 4: Set Up Data Collection
 
-   ![](images/tables_icon.jpg)
+Next, we will create a table to store the data of the attendees of the showcase event.
 
-   - Click on the New Table button at the top left and call it something like "Attendees", then click to Save
+1.  **Create Attendees Table Structure:**
 
-   - Click the new column icon to add the following two columns, leaving all settings as default
-     - Name
-     - Email
+    -   On the Botpress sidebar, click on the Tables icon.
 
-   ![](images/new_column_icon.jpg)
+    ![](images/tables_icon.jpg)
 
+    -   Click on the New Table button at the top left and call it something like "Attendees", then click to Save.
 
-2. **Configure Collection:**
-   - Return to the main configuration area, by clicking on the "Main" icon on the left sidebar
+    ![](images/new_table.jpg){width="346"}
 
-   ![](images/main_icon.jpg)
+    -   Click the new column icon to add the following two columns, leaving all settings as default
+        -   Name
+        -   Email
 
-   - Scroll down to the Tools section under Knowledge Base
-   - Click on the Add Tool plus icon
-   - Click on Tables then the Attendees table, then "Create Rows". This gives your bot the ability to create rows in that table.
+    ![](images/new_column_icon.jpg)
+
+2.  **Configure Collection:**
+
+Now, we have created the table, we need to tell the bot when and how to use this tool to store data.
+
+-   Return to the main configuration area, by clicking on the "Main" icon on the left sidebar
+
+![](images/main_icon.jpg)
+
+-   Scroll down to the Tools section
+
+![](images/tools_section.jpg){width="436"}
+
+-   Click on Tables then the Attendees table, then "Create Rows". This gives your bot the ability to create rows in that table.
+
+![](images/table_tool.jpg){width="468"}
 
 # Part 5: Testing and Publishing Your Bot
 
-1. **Use the Test Chat:**
-   - The Botpress interface has a test chat panel on the right side of the screen
-   - Try asking questions about:
-     - Your background ("Tell me about the educational background of [your name]")
-     - Course content ("What topics are covered in the GenAI course?")
-   - The bot should interrupt at some point to ask if you might be interested in the event. 
-   - Give your email and name, then check the Attendees table to see if the bot was successful in adding your information.
+1.  **Use the Test Chat:**
 
-2. **Publish:**
-   - Click "Publish" button in the top-right corner
-   - Wait for the publishing process to complete
+    -   The Botpress interface has a test chat panel on the right side of the screen
+    -   Try asking questions about:
+        -   Your background ("Tell me about the educational background of \[your name\]")
+        -   Course content ("What topics are covered in the GenAI course?")
+    -   The bot should interrupt at some point to ask if you might be interested in the event.
+    -   Give your email and name, then check the Attendees table to see if the bot was successful in adding your information.
 
-3. **Get Embedding Code:**
-   - After publishing, go to "Share", also in the top-right corner
-   - Select "Configure"
-   - Find the "Chat Bubble" section
-   - Copy the two script lines that will look similar to this:
-   ```html
-   <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
-   <script src="https://files.bpcontent.cloud/2025/05/27/14/20250527145803-WFVSK7BL.js"></script>
-   ```
+2.  **Publish:**
+
+    -   Click "Publish" button in the top-right corner
+    -   Wait for the publishing process to complete
+
+3.  **Get Embedding Code:**
+
+    -   After publishing, click on the "Chat Bubble" icon under the Publish menu.
+    -   You'll be taken to a section where you can edit the chat bubble settings.
+    -   Next, navigate to the "Share" menu and copy the code under "Embed Code"
+
+    ![](images/embed_code.jpg){width="613"}
 
 # Part 6: Embedding Your Bot on Your Website
 
+Now, we need to add this code to your portfolio website, so that a chat bubble appears at the bottom right of the page.
+
 ## Part 6A: Add Bot to Your Portfolio
 
-1. **Access Your GitHub Repository:**
-   - Go to your GitHub Pages repository where your portfolio is hosted
-   - Open the `index.html` file for editing
+1.  **Access Your GitHub Repository:**
+    -   Go to your GitHub Pages repository where your portfolio is hosted
+    -   Open the `index.html` file for editing
+2.  **Insert the Bot Code:**
+    -   Next, add the Webchat embed code to the head section of your website’s HTML. For example:
 
-2. **Insert the Bot Code:**
-   - Paste the two script lines you copied from Botpress right before the closing `</body>` tag. This will be near the end of the document.
-   ```html
-   <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
-   <script src="https://files.bpcontent.cloud/2025/05/27/14/20250527145803-WFVSK7BL.js"></script>
-   </body>
-   ```
-   - If you do not feel comfortable making this change yourself, you can ask an LLM to do it for you. 
+        ![](images/head_section.jpg){width="456"}
 
-3. **Commit and Deploy:**
-   - Save your changes to the `index.html` file
-   - Commit the changes to your GitHub repository
-   - Your live site will update automatically (this may take 3-5 minutes)
-   - You can track the status of your deployment by clicking on the "Actions" tab in the menu of the GitHub repository page
-   - NOTE: Even after the site is done deploying, you may need to refresh the page a few times to see the bot appear, because your browser may be loading a cached version of the page.
+    -   If you do not feel comfortable making this change yourself, you can ask an LLM to do it for you.
+3.  **Commit and Deploy:**
+    -   Save your changes to the `index.html` file
+    -   Commit the changes to your GitHub repository
+    -   Your live site will update automatically (this may take 3-5 minutes)
+    -   You can track the status of your deployment by clicking on the "Actions" tab in the menu of the GitHub repository page
+    -   NOTE: Even after the site is done deploying, you may need to refresh the page a few times to see the bot appear, because your browser may be loading a cached version of the page.
 
 ## Part 6B: Test Live Integration
 
-1. **Visit Your Live Site:** 
-   - Go to your GitHub Pages URL
-   - Look for the chat bubble (usually appears in the bottom-right corner)
+1.  **Visit Your Live Site:**
+    -   Go to your GitHub Pages URL
+    -   Look for the chat bubble (usually appears in the bottom-right corner)
+2.  **Test Full Functionality:**
+    -   Try the same tests you did before, but now on your live website
+    -   Ensure the bot loads properly and responds correctly
+    -   Verify the registration flow works in the live environment
+3.  **Making changes to your bot:**
+    -   WATCH OUT: If you make any changes to your bot, be sure to click on "Publish" again in the top-right corner to save your changes.
 
-2. **Test Full Functionality:**
-   - Try the same tests you did before, but now on your live website
-   - Ensure the bot loads properly and responds correctly
-   - Verify the registration flow works in the live environment
+# Part 8: Submission
 
-3. **Making changes to your bot:**
-   - WATCH OUT: If you make any changes to your bot, be sure to click on "Publish" again in the top-right corner to save your changes.
+To submit:
 
-
-# Part 7: Optional - Customize the Appearance of Your Bot
-
-1. **Navigate to the Customize Dashboard:** To customize the appearance of your bot, again click on the "Share" button in the top-right corner then select "Configure". Make sure you are in the "Chat Bubble" section, then under the "Appearance and Theme" section, click on "Edit on Dashboard". 
-
-   ![](images/configure_share.jpg){width=50%}
-
-   ![](images/edit_appearance.jpg){width=70%}
-
-2. **Customize the Appearance:** On this page, under the "Theme" section, you can change the color and font, and under the General section you can change the name of the bot, a description, an icon and a composer placeholder.
-
-# Part 8: Submission 
-
-To submit: 
-
-- Upload a screenshot of your chatbot ‘in action’ on the graph courses website in the upload box.
-- Paste a link to your website in the comments section.
+-   Upload a screenshot of your chatbot ‘in action’ on the graph courses website in the upload box.
+-   Paste a link to your website in the comments section.

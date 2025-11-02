@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -117,23 +83,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="part-1-setting-up-your-botpress-account-and-creating-your-bot" class="level1">
 <h1>Part 1: Setting Up Your Botpress Account and Creating Your Bot</h1>
+<p>Our first task is to set up a Botpress account and create a new bot.</p>
+<p>Note that Botpress interface changes from time to time, so the screenshots may not be exactly the same as the ones in the instructions.</p>
+<p>Also note that the free account will allow your chatbots to send/receive up to 500 messages. This should be enough for our course chatbots. But for serious use later on, you may need to add credit to your account)</p>
 <ol type="1">
-<li><strong>Create Your Botpress Account:</strong>
+<li><p><strong>Create Your Botpress Account:</strong></p>
 <ul>
-<li>Go to <a href="https://botpress.com/">botpress.com</a></li>
-<li>Sign up for a free account using your email (Note: Botpress provides $5 in free credits, which should cover over 1000 messages on the default models. But for serious use, you will need to add credit to your account)</li>
-<li>Verify your email address if needed</li>
-</ul></li>
-<li><strong>Create a New Bot:</strong>
+<li><p>Go to <a href="https://botpress.com/">botpress.com</a></p></li>
+<li><p>Sign up for a free account using your email.</p></li>
+<li><p>Verify your email address if needed. (Botpress will send you a verification email to your inbox.)</p></li>
+<li><p>When you first sign up, you may be taken to a screen like the below asking whether you want to “build with AI” or let the Botpress team build for you. Select “build with AI”.</p>
+<p><img src="images/build_with_ai.jpg" class="img-fluid" width="331"></p></li>
+<li><p>You will then see a “Setup” screen. This is not needed. We will set up our bot from scratch. Click on “Skip” at the top right.</p></li>
+</ul>
+<p><img src="images/skip_setup.jpg" class="img-fluid" width="536"></p></li>
+<li><p><strong>Open the Bot Studio:</strong></p>
 <ul>
-<li>Skip the initial bot-creation flow for new users (Select “Other” for the bot type, then “Next” at the next two screens.)</li>
-<li>Botpress may try to get you to sign up for a paid plan. Ignore this either by clicking “Not now” on the bottom right, or by clicking outside of the pop-up.</li>
-<li>Next, visit https://app.botpress.cloud/workspaces/, to view your bots. A default bot may have been created for you, click on it then click on “Edit in Studio” at the top right. If a default bot was not created for you, click on the blue “Create Bot” button.</li>
+<li>You will now be brought to your bot’s homepage. To open the bot studio, click on the “Edit in Studio” button at the top right.</li>
+</ul>
+<p><img src="images/edit_in_studio.jpg" class="img-fluid" width="545"></p>
+<ul>
+<li>At this point, botpress may try to get you to sign up for a paid plan. Ignore this either by pressing Escape on the keyboard, or by clicking outside of the pop-up.</li>
 </ul></li>
 </ol>
 </section>
-<section id="part-2-setting-up-the-bot-in-studio" class="level1">
-<h1>Part 2: Setting Up the Bot in Studio</h1>
+<section id="part-2-setting-up-the-bot-instructions" class="level1">
+<h1>Part 2: Setting Up the Bot Instructions</h1>
+<p>You now need to give an agent prompt that the LLM will use as context to understand how it should behave.</p>
 <ol type="1">
 <li><p><strong>Set Bot Instructions:</strong></p>
 <ul>
@@ -141,30 +117,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><img src="images/bot_instructions.jpg" class="img-fluid"></p>
 <ul>
-<li>Enter instructions like:</li>
+<li>Enter instructions like the below:</li>
 </ul></li>
 </ol>
 <pre class="{text}"><code>You are a portfolio assistant for a Generative AI course student. Your main tasks are:
+
 - Answer questions about the student's CV and background using the knowledge base
 - Provide information about the Graph Courses GenAI syllabus and curriculum based on your knowledge base
-- After answering about two questions from the user, politely ask them whether they might be interested in our upcoming showcase event on Sunday October 5 at 5pm GMT or Wednesday October 8 at 3pm GMT
-- If they express interest, you will collect their name and email for registration and record those in the Attendees table tool.
+- After answering the user's query, politely ask them whether they might be interested in our upcoming showcase event. These take place on 
 
-Be friendly, professional, and informative. Always try to be helpful while staying focused on these core topics. For other topics, politely decline to answer. </code></pre>
+-  Sunday, November 30, 5pm GMT
+-  Wednesday, December 3, 3pm GMT
+
+- If they express interest, collect their name and email for registration and record those in the Attendees table tool.
+- Try to be helpful while staying focused on these core topics. For other topics, politely decline to answer. </code></pre>
 </section>
 <section id="part-3-set-up-the-knowledge-base" class="level1">
 <h1>Part 3: Set up the Knowledge Base</h1>
+<p>Our next task is to set up a knowledge base for the bot to use to answer questions. As long as the knowledge we provide is not too long (not over the LLM’s context window limit), the bot will be able to use it proficiently to answer questions.</p>
 <ol type="1">
 <li><strong>Navigate to Knowledge Base:</strong>
 <ul>
 <li>Find the “Knowledge Base” section under the “Instructions” section</li>
-<li>Drag and drop your CV into the upload box. (If you don’t want any of your personal information online, you can use a fake example CV from the internet, like here: <a href="https://www.careers.ox.ac.uk/files/traditional-cv-examplepdf">https://www.careers.ox.ac.uk/files/traditional-cv-examplepdf</a>)</li>
-<li>Download the syllabus from: <a href="https://drive.google.com/file/d/1NV-Mo2UgXQwdTu_Jv-HtCVnB9Pf2Grng/view">https://drive.google.com/file/d/1NV-Mo2UgXQwdTu_Jv-HtCVnB9Pf2Grng/view</a>, and upload it to the knowledge base.</li>
+<li>Drag and drop your CV into the upload box. (If you don’t want any of your personal information online, you can use a fake example CV from the internet, like here: <a href="https://www.careers.ox.ac.uk/files/traditional-cv-examplepdf" class="uri">https://www.careers.ox.ac.uk/files/traditional-cv-examplepdf</a>)</li>
+<li>Download the syllabus from: <a href="https://drive.google.com/file/d/1NV-Mo2UgXQwdTu_Jv-HtCVnB9Pf2Grng/view" class="uri">https://drive.google.com/file/d/1NV-Mo2UgXQwdTu_Jv-HtCVnB9Pf2Grng/view</a>, and upload it to the knowledge base.</li>
 </ul></li>
 </ol>
 </section>
 <section id="part-4-set-up-data-collection" class="level1">
 <h1>Part 4: Set Up Data Collection</h1>
+<p>Next, we will create a table to store the data of the attendees of the showcase event.</p>
 <ol type="1">
 <li><p><strong>Create Attendees Table Structure:</strong></p>
 <ul>
@@ -172,30 +154,37 @@ Be friendly, professional, and informative. Always try to be helpful while stayi
 </ul>
 <p><img src="images/tables_icon.jpg" class="img-fluid"></p>
 <ul>
-<li><p>Click on the New Table button at the top left and call it something like “Attendees”, then click to Save</p></li>
-<li><p>Click the new column icon to add the following two columns, leaving all settings as default</p>
+<li>Click on the New Table button at the top left and call it something like “Attendees”, then click to Save.</li>
+</ul>
+<p><img src="images/new_table.jpg" class="img-fluid" width="346"></p>
+<ul>
+<li>Click the new column icon to add the following two columns, leaving all settings as default
 <ul>
 <li>Name</li>
 <li>Email</li>
 </ul></li>
 </ul>
 <p><img src="images/new_column_icon.jpg" class="img-fluid"></p></li>
-<li><p><strong>Configure Collection:</strong></p>
+<li><p><strong>Configure Collection:</strong></p></li>
+</ol>
+<p>Now, we have created the table, we need to tell the bot when and how to use this tool to store data.</p>
 <ul>
 <li>Return to the main configuration area, by clicking on the “Main” icon on the left sidebar</li>
 </ul>
 <p><img src="images/main_icon.jpg" class="img-fluid"></p>
 <ul>
-<li>Scroll down to the Tools section under Knowledge Base</li>
-<li>Click on the Add Tool plus icon</li>
+<li>Scroll down to the Tools section</li>
+</ul>
+<p><img src="images/tools_section.jpg" class="img-fluid" width="436"></p>
+<ul>
 <li>Click on Tables then the Attendees table, then “Create Rows”. This gives your bot the ability to create rows in that table.</li>
-</ul></li>
-</ol>
+</ul>
+<p><img src="images/table_tool.jpg" class="img-fluid" width="468"></p>
 </section>
 <section id="part-5-testing-and-publishing-your-bot" class="level1">
 <h1>Part 5: Testing and Publishing Your Bot</h1>
 <ol type="1">
-<li><strong>Use the Test Chat:</strong>
+<li><p><strong>Use the Test Chat:</strong></p>
 <ul>
 <li>The Botpress interface has a test chat panel on the right side of the screen</li>
 <li>Try asking questions about:
@@ -206,24 +195,23 @@ Be friendly, professional, and informative. Always try to be helpful while stayi
 <li>The bot should interrupt at some point to ask if you might be interested in the event.</li>
 <li>Give your email and name, then check the Attendees table to see if the bot was successful in adding your information.</li>
 </ul></li>
-<li><strong>Publish:</strong>
+<li><p><strong>Publish:</strong></p>
 <ul>
 <li>Click “Publish” button in the top-right corner</li>
 <li>Wait for the publishing process to complete</li>
 </ul></li>
-<li><strong>Get Embedding Code:</strong>
+<li><p><strong>Get Embedding Code:</strong></p>
 <ul>
-<li>After publishing, go to “Share”, also in the top-right corner</li>
-<li>Select “Configure”</li>
-<li>Find the “Chat Bubble” section</li>
-<li>Copy the two script lines that will look similar to this:</li>
+<li>After publishing, click on the “Chat Bubble” icon under the Publish menu.</li>
+<li>You’ll be taken to a section where you can edit the chat bubble settings.</li>
+<li>Next, navigate to the “Share” menu and copy the code under “Embed Code”</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.botpress.cloud/webchat/v2.4/inject.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://files.bpcontent.cloud/2025/05/27/14/20250527145803-WFVSK7BL.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<p><img src="images/embed_code.jpg" class="img-fluid" width="613"></p></li>
 </ol>
 </section>
 <section id="part-6-embedding-your-bot-on-your-website" class="level1">
 <h1>Part 6: Embedding Your Bot on Your Website</h1>
+<p>Now, we need to add this code to your portfolio website, so that a chat bubble appears at the bottom right of the page.</p>
 <section id="part-6a-add-bot-to-your-portfolio" class="level2">
 <h2 class="anchored" data-anchor-id="part-6a-add-bot-to-your-portfolio">Part 6A: Add Bot to Your Portfolio</h2>
 <ol type="1">
@@ -234,13 +222,9 @@ Be friendly, professional, and informative. Always try to be helpful while stayi
 </ul></li>
 <li><strong>Insert the Bot Code:</strong>
 <ul>
-<li>Paste the two script lines you copied from Botpress right before the closing <code>&lt;/body&gt;</code> tag. This will be near the end of the document.</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.botpress.cloud/webchat/v2.4/inject.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://files.bpcontent.cloud/2025/05/27/14/20250527145803-WFVSK7BL.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>If you do not feel comfortable making this change yourself, you can ask an LLM to do it for you.</li>
+<li><p>Next, add the Webchat embed code to the head section of your website’s HTML. For example:</p>
+<p><img src="images/head_section.jpg" class="img-fluid" width="456"></p></li>
+<li><p>If you do not feel comfortable making this change yourself, you can ask an LLM to do it for you.</p></li>
 </ul></li>
 <li><strong>Commit and Deploy:</strong>
 <ul>
@@ -272,15 +256,6 @@ Be friendly, professional, and informative. Always try to be helpful while stayi
 </ul></li>
 </ol>
 </section>
-</section>
-<section id="part-7-optional---customize-the-appearance-of-your-bot" class="level1">
-<h1>Part 7: Optional - Customize the Appearance of Your Bot</h1>
-<ol type="1">
-<li><p><strong>Navigate to the Customize Dashboard:</strong> To customize the appearance of your bot, again click on the “Share” button in the top-right corner then select “Configure”. Make sure you are in the “Chat Bubble” section, then under the “Appearance and Theme” section, click on “Edit on Dashboard”.</p>
-<p><img src="images/configure_share.jpg" class="img-fluid" style="width:50.0%"></p>
-<p><img src="images/edit_appearance.jpg" class="img-fluid" style="width:70.0%"></p></li>
-<li><p><strong>Customize the Appearance:</strong> On this page, under the “Theme” section, you can change the color and font, and under the General section you can change the name of the bot, a description, an icon and a composer placeholder.</p></li>
-</ol>
 </section>
 <section id="part-8-submission" class="level1">
 <h1>Part 8: Submission</h1>
