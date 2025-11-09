@@ -48,7 +48,7 @@ In the wild, you will find much more complex automations. Many organizations run
 
 1.  Click the Share button at the top right, then copy the responder link.
 
-2.  Open the form in a new tab and submit a test response. For example
+2.  Open the form in a new tab and submit a test response. You are encouraged to fill in data for an organization you know and care about. Here is an example:
 
     -   Name: `John Doe`
     -   Email: `john.doe@example.com`
@@ -69,7 +69,7 @@ In the wild, you will find much more complex automations. Many organizations run
 
 1.  If you have not yet done so, create a Make.com account. Once done, navigate to <https://www.make.com/en> and sign in.
 
-2.  Click **Create a new scenario**
+2.  Click **Create a new scenario**. This may also be called "Create scenario" or "New scenario".
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-06-06/2a6e92d6-c1a2-4737-93dd-ae062ef61780/File.jpeg?tl_px=148,0&br_px=1525,769&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=962,5){width="455"}
 
@@ -89,6 +89,7 @@ In the wild, you will find much more complex automations. Many organizations run
     -   **Sheet name:** Select "Form Responses 1"
     -   **Limit:** Set to `1` (processes one response at a time)
     -   Click **Save**
+    -   If asked where to start, enter `1` into the id field → **Save**
 
 ![](images/sheets_boxes.jpg){width="26%"}
 
@@ -98,14 +99,25 @@ Now to test the connection, you need to perform the steps below.
 
 1.  Right-click on the Google Sheets module
 2.  Click **"Choose where to start"**
-3.  Click **"All"** → **"Save"**
+
+![](images/choose_where_to_start.jpg){width="200"} 
+
+
+3.  Enter `1` into the id field → **"Save"**
+
+Note: If you add a second test row during your testing, you would select `2`, and so on.
+
+
+![](images/test_id_1.jpg){width="291"} 
+
+
 4.  Click **"Run once"** at the bottom left
 
-![](images/choose_where_to_start.jpg){width="200"} ![](images/test_all.jpg){width="291"} ![](images/run_once.jpg){width="288"}
+![](images/run_once.jpg){width="288"}
 
 Note that you will need to do this every time you want to test your workflow.
 
-If you get no errors, the workflow is working properly.
+If you get no errors, the workflow is working properly. You will also see the data from the form in the spreadsheet.
 
 ### Save your work
 
@@ -136,15 +148,17 @@ Make does not save your work automatically. You need to click the **Save** icon 
 2.  In the **Content** field, paste a prompt that looks something like:
 
 ```         
-A potential client has filled out a form on my website requesting generative AI consulting services. Research the company/organization below and create a clear, simple HTML report that covers an introduction to the business as well as potential generative AI opportunities for their work.
+A potential client has filled out a form on my website requesting generative AI consulting services. Research the company/organization below and create a clear, simple, and short HTML report that covers an introduction to the business as well as potential generative AI opportunities for their work.
 
-Use emojis, tables, and lists for visual appeal while keeping your writing clear and concise.
+Use emojis, tables and lists for visual appeal while keeping your writing clear and concise.
 
 If you cannot find online information about the company, just indicate so.
 
 Do not include any prelude or postlude.
 
-Company Name and Geography:
+Important: Citations and links should only be at the very end of the report, not inside the text!
+
+Now, here is the company name and geographic area from the form:
 ```
 
 3.  Right after the prompt (in the same box), click into the text area, and the variable selector should come up. Choose the company name field from your Google Form (e.g., "What is your company name...")
@@ -157,8 +171,8 @@ So each time someone fills out the form, the company name will be added to the p
 
 ![](https://colony-recorder.s3.amazonaws.com/files/2025-06-06/b4b2b521-eb1d-4524-9efc-3f870e43364e/File.jpeg?tl_px=148,182&br_px=1525,952&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=833,329)
 
-5.  In the **Model** field, type "search" and select **GPT-5**
-    -   This model can search the internet to research companies, providing more comprehensive and current information. In the past we used Perplexity Sonar for this, but our testing shows that OpenAI's model works a bit better for this task.
+5.  For the **Model** field, first click the "Map" dial, which will allow you to type in any model of your choice. Then in the box, paste in `openai/gpt-5-mini:online`.
+    -   The `online` suffix allows the model to search the internet. So even if the model does know about the company based on its training data, it can still search the internet to research, providing more comprehensive and current information. 
 
 ![](https://colony-recorder.s3.amazonaws.com/files/2025-06-06/6e4b7179-b274-404a-afda-c350d6e7f45d/File.jpeg?tl_px=148,182&br_px=1525,952&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=869,298)
 
@@ -168,7 +182,7 @@ So each time someone fills out the form, the company name will be added to the p
 
 Now that you have two modules, you should test the workflow again!
 
-1.  As you did before, right-click the Google Sheets module → **Choose where to start** → **All** → **Save**
+1.  IMPORTANT: As you did before, right-click the Google Sheets module → **Choose where to start** → enter `1` into the id field → **Save**
 2.  Then click **Run once** at the bottom left to test the entire workflow
 3.  If you get no errors, then all is working fine.
 4.  Click the Save icon in the bottom toolbar to save your work.
@@ -184,18 +198,29 @@ Now that you have two modules, you should test the workflow again!
 
 ![](images/create_docs_module.jpg){width="425"}
 
-3.  For the document **Name**, type: `GenAI Web Report for` then select the company name variable from your form
+3.  For the document **Name**, type: `GenAI Web Report for` then select the company name/geographic area variable from your form
+
+![](images/report_form_name.jpg){width="425"}
+
 4.  For the **Content** field, select the AI response from the variable picker:
     -   Navigate to OpenRouter variables → **Choices** → **Message** → **Content** and click on **Content**
+
+![](images/report_content_picker.jpg){width="425"}
+
 5.  Under **New document's location folder**, search for and select your "GenAI Consultations" folder
 6.  Click **Save**
 
 ### Test and Save Workflow
 
-Run your complete workflow test again and save your work. If successful, check your Google Drive for the newly created report document. If you're unhappy with the report, try editing the prompt and rerunning your test until you get an output that works.
+Run your complete workflow to test again.
+
+IMPORTANT: As you did before, right-click the Google Sheets module → **Choose where to start** → enter `1` into the id field → **Save**
+
+If you get no errors, then all is working fine. Click the Save icon in the bottom toolbar to save your work. 
+
+Check your Google Drive for the newly created report document. If you're unhappy with the report, try editing the prompt and rerunning your test until you get an output that works.
 
 ------------------------------------------------------------------------
-
 
 # Part 5: Activating Your Automation
 
@@ -203,17 +228,15 @@ Congratulations! You've now built a complete automation that will process new fo
 
 ## Set Schedule and Activate
 
-1.  Locate the scheduling section next to the **Run once** button
-2.  We recommend changing the frequency from **Minutes** to **120** (runs every 2 hours)
-    -   This prevents using too many operations on the free plan (1000 credits limit)
-3.  Click **Save**
-4.  Toggle the scenario **On** or click **Activate scenario** if prompted
+3.  Click the **Save** icon in the bottom toolbar to save your work.
 
-![](https://colony-recorder.s3.amazonaws.com/files/2025-06-06/56d2a9c3-6c0f-4f84-9fbf-6340c3df89c7/File.webp)
+2.  Locate the toggle beside the **Every 15 minutes** text, and turn the automation on. 
 
-Your automation is now live and will process new form submissions automatically!
+![](images/turn_on_automation.jpg){width="425"}
 
-(Note that if you want to test the full functionality, after embe you may want to set the frequency to 2 minutes or less, so you can see the results immediately.)
+Your automation is now live and will process new form submissions automatically (every 15 minutes).
+
+**NOTE:** The scenario runs every 15 minutes by default, checking for and processing any new form submissions. Keep this frequency during testing so you can see results quickly. However, for production use, consider increasing the interval to every 3 hours or more. Each time the scenario checks for new data counts as one operation, and Make.com's free plan provides approximately 1,000 operations per month.
 
 ------------------------------------------------------------------------
 
@@ -240,7 +263,7 @@ Add a new section called "Contact for Consultation" and embed this Google Form:
 [Paste your embed code here]
 ```
 
-3.  Update your GitHub Pages website with ChatGPT's new HTML code
+3.  Update your GitHub Pages website with the LLM's new HTML code
 4.  Commit/Push the changes to make your consultation form live
 
 ------------------------------------------------------------------------
@@ -249,7 +272,10 @@ Add a new section called "Contact for Consultation" and embed this Google Form:
 
 To submit your work:
 
-1.  Export and upload your scenario blueprint. In the bottom toolbar, under the more options, click **Export Blueprint**. This contains a file that represents your completed workflow. (This means if you wanted you could share, \[or sell!\] your workflows!)
-2.  Upload that file to the submission form.
+1.  Export and upload your scenario blueprint. At the top right, click the three dots and select **Export Blueprint**.
 
-------------------------------------------------------------------------
+![](images/export_blueprint.jpg){width="425"}
+
+This contains a file that represents your completed workflow. (This means if you wanted you could share, \[or sell!\] your workflows!)
+
+2.  Upload that file to the submission box on the course website.
