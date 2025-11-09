@@ -228,7 +228,7 @@ Congratulations! You've now built a complete automation that will process new fo
 
 ## Set Schedule and Activate
 
-3.  Click the **Save** icon in the bottom toolbar to save your work.
+1.  Click the **Save** icon in the bottom toolbar to save your work.
 
 2.  Locate the toggle beside the **Every 15 minutes** text, and turn the automation on. 
 

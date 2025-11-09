@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="test-your-form-and-connect-to-sheets">Test Your Form and Connect to Sheets</h2>
 <ol type="1">
 <li><p>Click the Share button at the top right, then copy the responder link.</p></li>
-<li><p>Open the form in a new tab and submit a test response. For example</p>
+<li><p>Open the form in a new tab and submit a test response. You are encouraged to fill in data for an organization you know and care about. Here is an example:</p>
 <ul>
 <li>Name: <code>John Doe</code></li>
 <li>Email: <code>john.doe@example.com</code></li>
@@ -134,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="build-your-first-module-google-sheets-watcher">Build Your First Module: Google Sheets Watcher</h2>
 <ol type="1">
 <li><p>If you have not yet done so, create a Make.com account. Once done, navigate to <a href="https://www.make.com/en" class="uri">https://www.make.com/en</a> and sign in.</p></li>
-<li><p>Click <strong>Create a new scenario</strong></p></li>
+<li><p>Click <strong>Create a new scenario</strong>. This may also be called “Create scenario” or “New scenario”.</p></li>
 </ol>
 <p><img src="https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-06-06/2a6e92d6-c1a2-4737-93dd-ae062ef61780/File.jpeg?tl_px=148,0&amp;br_px=1525,769&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=962,5" class="img-fluid" width="455"></p>
 <ol start="3" type="1">
@@ -151,6 +151,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Sheet name:</strong> Select “Form Responses 1”</li>
 <li><strong>Limit:</strong> Set to <code>1</code> (processes one response at a time)</li>
 <li>Click <strong>Save</strong></li>
+<li>If asked where to start, enter <code>1</code> into the id field → <strong>Save</strong></li>
 </ul></li>
 </ol>
 <p><img src="images/sheets_boxes.jpg" class="img-fluid" style="width:26.0%"></p>
@@ -160,12 +161,19 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Right-click on the Google Sheets module</li>
 <li>Click <strong>“Choose where to start”</strong></li>
-<li>Click <strong>“All”</strong> → <strong>“Save”</strong></li>
+</ol>
+<p><img src="images/choose_where_to_start.jpg" class="img-fluid" width="200"></p>
+<ol start="3" type="1">
+<li>Enter <code>1</code> into the id field → <strong>“Save”</strong></li>
+</ol>
+<p>Note: If you add a second test row during your testing, you would select <code>2</code>, and so on.</p>
+<p><img src="images/test_id_1.jpg" class="img-fluid" width="291"></p>
+<ol start="4" type="1">
 <li>Click <strong>“Run once”</strong> at the bottom left</li>
 </ol>
-<p><img src="images/choose_where_to_start.jpg" class="img-fluid" width="200"> <img src="images/test_all.jpg" class="img-fluid" width="291"> <img src="images/run_once.jpg" class="img-fluid" width="288"></p>
+<p><img src="images/run_once.jpg" class="img-fluid" width="288"></p>
 <p>Note that you will need to do this every time you want to test your workflow.</p>
-<p>If you get no errors, the workflow is working properly.</p>
+<p>If you get no errors, the workflow is working properly. You will also see the data from the form in the spreadsheet.</p>
 </section>
 <section id="save-your-work" class="level3">
 <h3 class="anchored" data-anchor-id="save-your-work">Save your work</h3>
@@ -197,15 +205,17 @@ ul.task-list li input[type="checkbox"] {
 <ol start="2" type="1">
 <li>In the <strong>Content</strong> field, paste a prompt that looks something like:</li>
 </ol>
-<pre><code>A potential client has filled out a form on my website requesting generative AI consulting services. Research the company/organization below and create a clear, simple HTML report that covers an introduction to the business as well as potential generative AI opportunities for their work.
+<pre><code>A potential client has filled out a form on my website requesting generative AI consulting services. Research the company/organization below and create a clear, simple, and short HTML report that covers an introduction to the business as well as potential generative AI opportunities for their work.
 
-Use emojis, tables, and lists for visual appeal while keeping your writing clear and concise.
+Use emojis, tables and lists for visual appeal while keeping your writing clear and concise.
 
 If you cannot find online information about the company, just indicate so.
 
 Do not include any prelude or postlude.
 
-Company Name and Geography:</code></pre>
+Important: Citations and links should only be at the very end of the report, not inside the text!
+
+Now, here is the company name and geographic area from the form:</code></pre>
 <ol start="3" type="1">
 <li>Right after the prompt (in the same box), click into the text area, and the variable selector should come up. Choose the company name field from your Google Form (e.g., “What is your company name…”)</li>
 </ol>
@@ -216,9 +226,9 @@ Company Name and Geography:</code></pre>
 </ol>
 <p><img src="https://colony-recorder.s3.amazonaws.com/files/2025-06-06/b4b2b521-eb1d-4524-9efc-3f870e43364e/File.jpeg?tl_px=148,182&amp;br_px=1525,952&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=833,329" class="img-fluid"></p>
 <ol start="5" type="1">
-<li>In the <strong>Model</strong> field, type “search” and select <strong>GPT-5</strong>
+<li>For the <strong>Model</strong> field, first click the “Map” dial, which will allow you to type in any model of your choice. Then in the box, paste in <code>openai/gpt-5-mini:online</code>.
 <ul>
-<li>This model can search the internet to research companies, providing more comprehensive and current information. In the past we used Perplexity Sonar for this, but our testing shows that OpenAI’s model works a bit better for this task.</li>
+<li>The <code>online</code> suffix allows the model to search the internet. So even if the model does know about the company based on its training data, it can still search the internet to research, providing more comprehensive and current information.</li>
 </ul></li>
 </ol>
 <p><img src="https://colony-recorder.s3.amazonaws.com/files/2025-06-06/6e4b7179-b274-404a-afda-c350d6e7f45d/File.jpeg?tl_px=148,182&amp;br_px=1525,952&amp;force_format=jpeg&amp;q=100&amp;width=1120.0&amp;wat=1&amp;wat_opacity=0.7&amp;wat_gravity=northwest&amp;wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&amp;wat_pad=869,298" class="img-fluid"></p>
@@ -229,7 +239,7 @@ Company Name and Geography:</code></pre>
 <h3 class="anchored" data-anchor-id="test-and-save-your-workflow">Test and Save Your Workflow</h3>
 <p>Now that you have two modules, you should test the workflow again!</p>
 <ol type="1">
-<li>As you did before, right-click the Google Sheets module → <strong>Choose where to start</strong> → <strong>All</strong> → <strong>Save</strong></li>
+<li>IMPORTANT: As you did before, right-click the Google Sheets module → <strong>Choose where to start</strong> → enter <code>1</code> into the id field → <strong>Save</strong></li>
 <li>Then click <strong>Run once</strong> at the bottom left to test the entire workflow</li>
 <li>If you get no errors, then all is working fine.</li>
 <li>Click the Save icon in the bottom toolbar to save your work.</li>
@@ -248,17 +258,26 @@ Company Name and Geography:</code></pre>
 </ol>
 <p><img src="images/create_docs_module.jpg" class="img-fluid" width="425"></p>
 <ol start="3" type="1">
-<li>For the document <strong>Name</strong>, type: <code>GenAI Web Report for</code> then select the company name variable from your form</li>
+<li>For the document <strong>Name</strong>, type: <code>GenAI Web Report for</code> then select the company name/geographic area variable from your form</li>
+</ol>
+<p><img src="images/report_form_name.jpg" class="img-fluid" width="425"></p>
+<ol start="4" type="1">
 <li>For the <strong>Content</strong> field, select the AI response from the variable picker:
 <ul>
 <li>Navigate to OpenRouter variables → <strong>Choices</strong> → <strong>Message</strong> → <strong>Content</strong> and click on <strong>Content</strong></li>
 </ul></li>
+</ol>
+<p><img src="images/report_content_picker.jpg" class="img-fluid" width="425"></p>
+<ol start="5" type="1">
 <li>Under <strong>New document’s location folder</strong>, search for and select your “GenAI Consultations” folder</li>
 <li>Click <strong>Save</strong></li>
 </ol>
 <section id="test-and-save-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="test-and-save-workflow">Test and Save Workflow</h3>
-<p>Run your complete workflow test again and save your work. If successful, check your Google Drive for the newly created report document. If you’re unhappy with the report, try editing the prompt and rerunning your test until you get an output that works.</p>
+<p>Run your complete workflow to test again.</p>
+<p>IMPORTANT: As you did before, right-click the Google Sheets module → <strong>Choose where to start</strong> → enter <code>1</code> into the id field → <strong>Save</strong></p>
+<p>If you get no errors, then all is working fine. Click the Save icon in the bottom toolbar to save your work.</p>
+<p>Check your Google Drive for the newly created report document. If you’re unhappy with the report, try editing the prompt and rerunning your test until you get an output that works.</p>
 <hr>
 </section>
 </section>
@@ -269,17 +288,12 @@ Company Name and Geography:</code></pre>
 <section id="set-schedule-and-activate" class="level2">
 <h2 class="anchored" data-anchor-id="set-schedule-and-activate">Set Schedule and Activate</h2>
 <ol type="1">
-<li>Locate the scheduling section next to the <strong>Run once</strong> button</li>
-<li>We recommend changing the frequency from <strong>Minutes</strong> to <strong>120</strong> (runs every 2 hours)
-<ul>
-<li>This prevents using too many operations on the free plan (1000 credits limit)</li>
-</ul></li>
-<li>Click <strong>Save</strong></li>
-<li>Toggle the scenario <strong>On</strong> or click <strong>Activate scenario</strong> if prompted</li>
+<li><p>Click the <strong>Save</strong> icon in the bottom toolbar to save your work.</p></li>
+<li><p>Locate the toggle beside the <strong>Every 15 minutes</strong> text, and turn the automation on.</p></li>
 </ol>
-<p><img src="https://colony-recorder.s3.amazonaws.com/files/2025-06-06/56d2a9c3-6c0f-4f84-9fbf-6340c3df89c7/File.webp" class="img-fluid"></p>
-<p>Your automation is now live and will process new form submissions automatically!</p>
-<p>(Note that if you want to test the full functionality, after embe you may want to set the frequency to 2 minutes or less, so you can see the results immediately.)</p>
+<p><img src="images/turn_on_automation.jpg" class="img-fluid" width="425"></p>
+<p>Your automation is now live and will process new form submissions automatically (every 15 minutes).</p>
+<p><strong>NOTE:</strong> The scenario runs every 15 minutes by default, checking for and processing any new form submissions. Keep this frequency during testing so you can see results quickly. However, for production use, consider increasing the interval to every 3 hours or more. Each time the scenario checks for new data counts as one operation, and Make.com’s free plan provides approximately 1,000 operations per month.</p>
 <hr>
 </section>
 </section>
@@ -306,7 +320,7 @@ Add a new section called "Contact for Consultation" and embed this Google Form:
 
 [Paste your embed code here]</code></pre>
 <ol start="3" type="1">
-<li>Update your GitHub Pages website with ChatGPT’s new HTML code</li>
+<li>Update your GitHub Pages website with the LLM’s new HTML code</li>
 <li>Commit/Push the changes to make your consultation form live</li>
 </ol>
 <hr>
@@ -316,10 +330,13 @@ Add a new section called "Contact for Consultation" and embed this Google Form:
 <h1>Submission</h1>
 <p>To submit your work:</p>
 <ol type="1">
-<li>Export and upload your scenario blueprint. In the bottom toolbar, under the more options, click <strong>Export Blueprint</strong>. This contains a file that represents your completed workflow. (This means if you wanted you could share, [or sell!] your workflows!)</li>
-<li>Upload that file to the submission form.</li>
+<li>Export and upload your scenario blueprint. At the top right, click the three dots and select <strong>Export Blueprint</strong>.</li>
 </ol>
-<hr>
+<p><img src="images/export_blueprint.jpg" class="img-fluid" width="425"></p>
+<p>This contains a file that represents your completed workflow. (This means if you wanted you could share, [or sell!] your workflows!)</p>
+<ol start="2" type="1">
+<li>Upload that file to the submission box on the course website.</li>
+</ol>
 </section>
 
 </main>
