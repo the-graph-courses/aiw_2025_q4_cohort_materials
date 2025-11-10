@@ -1,6 +1,8 @@
 ---
 title: "Analyzing Job Market Data with LLMs in Sheets and AI Reporting Agents"
-format: html
+format:
+  html:
+    toc: true
 author: "The Graph Courses"
 ---
 

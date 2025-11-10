@@ -1,6 +1,8 @@
 ---
 title: "Introduction to Data Visualization with ggplot2"
-format: html
+format:
+  html:
+    toc: true
 author: "The Graph Courses Team"
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: "Workshop: Automation with Make.com"
-format: html
+format:
+  html:
+    toc: true
 author: "The Graph Courses Team"
 ---
 

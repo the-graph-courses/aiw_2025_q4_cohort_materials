@@ -1,6 +1,8 @@
 ---
 title: "Week 1: Set Up Your AI‑Course Portfolio Website"
-format: html
+format:
+  html:
+    toc: true
 number-sections: true
 ---
 

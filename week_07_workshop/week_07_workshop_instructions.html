@@ -72,10 +72,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#part-1-understanding-the-grammar-of-graphics" id="toc-part-1-understanding-the-grammar-of-graphics" class="nav-link" data-scroll-target="#part-1-understanding-the-grammar-of-graphics">Part 1: Understanding the Grammar of Graphics</a>
+  <ul class="collapse">
+  <li><a href="#the-ggplot2-philosophy" id="toc-the-ggplot2-philosophy" class="nav-link" data-scroll-target="#the-ggplot2-philosophy">The ggplot2 Philosophy</a></li>
+  <li><a href="#setting-up-your-environment" id="toc-setting-up-your-environment" class="nav-link" data-scroll-target="#setting-up-your-environment">Setting Up Your Environment</a></li>
+  <li><a href="#your-first-ggplot2-plot" id="toc-your-first-ggplot2-plot" class="nav-link" data-scroll-target="#your-first-ggplot2-plot">Your First ggplot2 Plot</a></li>
+  </ul></li>
+  <li><a href="#part-2-essential-plot-types" id="toc-part-2-essential-plot-types" class="nav-link" data-scroll-target="#part-2-essential-plot-types">Part 2: Essential Plot Types</a>
+  <ul class="collapse">
+  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots">Scatter Plots</a></li>
+  <li><a href="#bar-charts" id="toc-bar-charts" class="nav-link" data-scroll-target="#bar-charts">Bar Charts</a></li>
+  <li><a href="#histograms-and-density-plots" id="toc-histograms-and-density-plots" class="nav-link" data-scroll-target="#histograms-and-density-plots">Histograms and Density Plots</a></li>
+  <li><a href="#box-plots" id="toc-box-plots" class="nav-link" data-scroll-target="#box-plots">Box Plots</a></li>
+  </ul></li>
+  <li><a href="#part-3-customizing-your-plots" id="toc-part-3-customizing-your-plots" class="nav-link" data-scroll-target="#part-3-customizing-your-plots">Part 3: Customizing Your Plots</a>
+  <ul class="collapse">
+  <li><a href="#adding-trend-lines" id="toc-adding-trend-lines" class="nav-link" data-scroll-target="#adding-trend-lines">Adding Trend Lines</a></li>
+  <li><a href="#labels-and-titles" id="toc-labels-and-titles" class="nav-link" data-scroll-target="#labels-and-titles">Labels and Titles</a></li>
+  <li><a href="#color-and-fill-scales" id="toc-color-and-fill-scales" class="nav-link" data-scroll-target="#color-and-fill-scales">Color and Fill Scales</a></li>
+  <li><a href="#themes" id="toc-themes" class="nav-link" data-scroll-target="#themes">Themes</a></li>
+  </ul></li>
+  <li><a href="#part-4-faceting---multiple-plots" id="toc-part-4-faceting---multiple-plots" class="nav-link" data-scroll-target="#part-4-faceting---multiple-plots">Part 4: Faceting - Multiple Plots</a></li>
+  <li><a href="#part-5-working-with-real-data" id="toc-part-5-working-with-real-data" class="nav-link" data-scroll-target="#part-5-working-with-real-data">Part 5: Working with Real Data</a>
+  <ul class="collapse">
+  <li><a href="#comprehensive-analysis" id="toc-comprehensive-analysis" class="nav-link" data-scroll-target="#comprehensive-analysis">Comprehensive Analysis</a></li>
+  </ul></li>
+  <li><a href="#part-6-best-practices-and-tips" id="toc-part-6-best-practices-and-tips" class="nav-link" data-scroll-target="#part-6-best-practices-and-tips">Part 6: Best Practices and Tips</a>
+  <ul class="collapse">
+  <li><a href="#dos-and-donts" id="toc-dos-and-donts" class="nav-link" data-scroll-target="#dos-and-donts">Do’s and Don’ts</a>
+  <ul class="collapse">
+  <li><a href="#do" id="toc-do" class="nav-link" data-scroll-target="#do">✅ Do:</a></li>
+  <li><a href="#dont" id="toc-dont" class="nav-link" data-scroll-target="#dont">❌ Don’t:</a></li>
+  </ul></li>
+  <li><a href="#common-ggplot2-patterns" id="toc-common-ggplot2-patterns" class="nav-link" data-scroll-target="#common-ggplot2-patterns">Common ggplot2 Patterns</a></li>
+  </ul></li>
+  <li><a href="#part-7-hands-on-exercises" id="toc-part-7-hands-on-exercises" class="nav-link" data-scroll-target="#part-7-hands-on-exercises">Part 7: Hands-On Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-basic-plotting" id="toc-exercise-1-basic-plotting" class="nav-link" data-scroll-target="#exercise-1-basic-plotting">Exercise 1: Basic Plotting</a></li>
+  <li><a href="#exercise-2-categorical-data" id="toc-exercise-2-categorical-data" class="nav-link" data-scroll-target="#exercise-2-categorical-data">Exercise 2: Categorical Data</a></li>
+  <li><a href="#exercise-3-distributions" id="toc-exercise-3-distributions" class="nav-link" data-scroll-target="#exercise-3-distributions">Exercise 3: Distributions</a></li>
+  <li><a href="#exercise-4-advanced-visualization" id="toc-exercise-4-advanced-visualization" class="nav-link" data-scroll-target="#exercise-4-advanced-visualization">Exercise 4: Advanced Visualization</a></li>
+  </ul></li>
+  <li><a href="#part-8-going-further" id="toc-part-8-going-further" class="nav-link" data-scroll-target="#part-8-going-further">Part 8: Going Further</a>
+  <ul class="collapse">
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#advanced-topics-to-explore" id="toc-advanced-topics-to-explore" class="nav-link" data-scroll-target="#advanced-topics-to-explore">Advanced Topics to Explore</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">

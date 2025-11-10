@@ -1,6 +1,8 @@
 ---
 title: "Workshop 2: Automated Data Analysis & Reporting"
-format: html
+format:
+  html:
+    toc: true
 author: "The Graph Courses"
 ---
 

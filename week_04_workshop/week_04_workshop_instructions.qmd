@@ -1,6 +1,8 @@
 ---
 title: "Portfolio Website Chatbot with Botpress"
-format: html
+format:
+  html:
+    toc: true
 author: "The Graph Courses"
 ---
 
