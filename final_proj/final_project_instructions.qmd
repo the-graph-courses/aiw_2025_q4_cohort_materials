@@ -21,11 +21,11 @@ We recommend that your project should use *at least two* different modules of th
 
 # Instructor Feedback Sessions
 
-Our second-to-last workshop on September 28 or October 1 will be an optional session where you can get feedback and mentorship on your final project. Try to make sure you have at least a draft of the presentation by then.
+Our second-to-last workshop will be an optional session where you can get feedback and mentorship on your final project. Try to make sure you have at least a draft of the presentation by then.
 
 # Presentation Dates
 
-The presentation will be on either Sunday, October 5, 5pm GMT or Wednesday, October 8, 3pm GMT. You will be expected to present in your corresponding class time, which you have been attending. If you need to switch, please let us know with at least one week's notice.
+The presentation will be on either Sunday, November 30, 5pm GMT or Wednesday, December 3, 3pm GMT. You will be expected to present in your corresponding class time, which you have been attending. If you need to switch, please let us know with at least one week's notice.
 
 # Submission Instructions
 
