@@ -57,7 +57,9 @@ Create an elegant modern, abstract, minimalist flyer for the following event:
 ► Sub-headline: "Join us to see our cohort of AI learners are putting their skills to work".
 ► Date and Time: Sunday, November 30, 5pm GMT or Wednesday, December 3, 3pm GMT
 ► Our theme colors are light teal, dark teal, and yellow.
-► To sign up, visit https://forms.gle/n9Xf8ocLd6JtWXUZA```
+► To sign up, visit https://forms.gle/n9Xf8ocLd6JtWXUZA
+
+```
 
 4. Press Enter to generate.
 
