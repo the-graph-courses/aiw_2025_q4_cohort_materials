@@ -202,4 +202,4 @@ If you want to make some custom edits, you can do so in the following ways.
 
 ### 2-D Submit Your Work
 
-Upload your final visual abstract (PDF, screenshot, or exported file) to your assignment submission area on the course page. The page should allow multiple submissions. (After you upload one file, simply repeat the process to upload another file.)
+Upload your final visual abstract (PDF, screenshot, or exported file) to the comments section on the workshop page. Include a link to the original paper in your comment.
